@@ -6,25 +6,23 @@ namespace MapShapes.Data.Entities
         {
         }
 
-        public OverlayShape(string title, string properties, int shapeTypeId)
+        public OverlayShape(string title, string properties, ShapeType type)
         {
             this.Title = title;
-            this.ShapeTypeId = shapeTypeId;
+            this.Type = type;
             this.Properties = properties;
         }
 
         public string Properties { get; private set; }
-
-        public virtual ShapeType ShapeType { get; private set; }
-
-        public int ShapeTypeId { get; private set; }
         public string Title { get; private set; }
 
-        public void Edit(string title, string properties, int shapeTypeId)
+        public ShapeType Type { get; private set; }
+
+        public void Edit(string title, string properties, ShapeType type)
         {
             this.Title = title;
             this.Properties = properties;
-            this.ShapeTypeId = shapeTypeId;
+            this.Type = type;
         }
     }
 }

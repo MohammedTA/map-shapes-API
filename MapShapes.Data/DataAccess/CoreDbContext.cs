@@ -13,13 +13,10 @@ namespace MapShapes.Data.DataAccess
 
         public virtual DbSet<OverlayShape> OverlayShapes { get; set; }
 
-        public virtual DbSet<ShapeType> ShapeTypes { get; set; }
-
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.ApplyConfiguration(new ShapeTypeMap());
             builder.ApplyConfiguration(new OverlayShapeMap());
         }
     }

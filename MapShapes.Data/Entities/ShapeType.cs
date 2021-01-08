@@ -1,24 +1,14 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
 namespace MapShapes.Data.Entities
 {
-    using System.Collections.Generic;
-
-    public class ShapeType : KeyInt32
+    public enum ShapeType
     {
-        protected ShapeType()
-        {
-        }
+        Circle = 1,
+        Rectangle = 2,
+        Polyline = 3
 
-        public ShapeType(string name)
-        {
-            this.Name = name;
-        }
-
-        public string Name { get; private set; }
-        public virtual ICollection<OverlayShape> OverlayShapes { get; set; } = new List<OverlayShape>();
-
-        public void Edit(string name)
-        {
-            this.Name = name;
-        }
     }
 }

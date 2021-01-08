@@ -3,23 +3,21 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './map/map.component';
-import { AgmCoreModule, GoogleMapsAPIWrapper } from "@agm/core";
-import { FormsModule } from "@angular/forms";
-import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
-  declarations: [AppComponent, MapComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyBgAnmo7oRp5h-2P3leyHh0wsC74UZImaA',
-    }),
     FormsModule,
-    NgbModule
+    ReactiveFormsModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
   ],
-  providers: [GoogleMapsAPIWrapper],
+  declarations: [AppComponent],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

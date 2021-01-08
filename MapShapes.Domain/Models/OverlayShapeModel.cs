@@ -9,13 +9,13 @@ namespace MapShapes.Domain.Models
             this.Id = overlayShape.Id;
             this.Title = overlayShape.Title;
             this.Properties = overlayShape.Properties;
-            this.ShapeTypeId = overlayShape.ShapeTypeId;
+            this.Type = overlayShape.Type;
         }
 
         public int Id { get; set; }
 
         public string Properties { get; set; }
-        public int ShapeTypeId { get; set; }
+        public ShapeType Type { get; set; }
         public string Title { get; set; }
     }
 }

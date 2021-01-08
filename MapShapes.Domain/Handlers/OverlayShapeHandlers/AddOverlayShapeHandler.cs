@@ -17,7 +17,7 @@ namespace MapShapes.Domain.Handlers.OverlayShapeHandlers
 
         public override async Task<object> Handle(AddOverlayShapeCommand request, CancellationToken cancellationToken)
         {
-            var overlayShape = new OverlayShape(request.Title, request.Properties, request.ShapeTypeId);
+            var overlayShape = new OverlayShape(request.Title, request.Properties, request.Type);
 
             await this.context.OverlayShapes.AddAsync(overlayShape, cancellationToken);
             await this.context.SaveChangesAsync(cancellationToken);

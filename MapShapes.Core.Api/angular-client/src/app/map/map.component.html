@@ -1,25 +1,71 @@
-<agm-map
-  [(latitude)]="location.lat"
-  [(longitude)]="location.lng"
-  [(zoom)]="location.zoom"
-  [disableDefaultUI]="true"
-  [zoomControl]="true"
-  [(fitBounds)]="location.viewport"
->
-  <agm-marker
-    [(latitude)]="location.marker.lat"
-    [(longitude)]="location.marker.lng"
-    [markerDraggable]="location.marker.draggable"
-    (dragEnd)="markerDragEnd($event)"
-  ></agm-marker>
-
-  <!-- ADD THIS: -->
-  <agm-circle
-    [latitude]="location.lat"
-    [longitude]="location.lng"
-    [(radius)]="circleRadius"
-    [fillColor]="'blue'"
-    [circleDraggable]="true"
-    [editable]="true"
-  ></agm-circle>
-</agm-map>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Add new shape</h5>
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              [(ngModel)]="overlayShape.title"
+              class="form-control"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="type" class="form-label">Shape type</label>
+            <select
+              id="type"
+              name="type"
+              [(ngModel)]="overlayShape.type"
+              class="form-control"
+            >
+              <option value="CIRCLE">Circle</option>
+              <option value="RECTANGLE">Rectangle</option>
+              <option value="POLYLINE">Polyline</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <button
+              type="submit"
+              (click)="drawingManager()"
+              class="btn btn-primary"
+              [disabled]="isDisabled"
+            >
+              Draw
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Shapes</h5>
+          <button
+            *ngFor="let item of overlayShapes; let i = index"
+            type="button"
+            (click)="selectShape(item)"
+            class="btn btn-primary custom"
+          >
+            {{ item.title }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <div class="card">
+        <agm-map
+          [(latitude)]="location.lat"
+          [(longitude)]="location.lng"
+          [(zoom)]="location.zoom"
+          [disableDefaultUI]="true"
+          [zoomControl]="true"
+          [(fitBounds)]="location.viewport"
+          (mapReady)="onMapReady($event)"
+        >
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>

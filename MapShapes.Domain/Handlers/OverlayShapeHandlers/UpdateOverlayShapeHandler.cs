@@ -21,7 +21,7 @@ namespace MapShapes.Domain.Handlers.OverlayShapeHandlers
                     t => t.Id == request.Id,
                     cancellationToken: cancellationToken);
 
-            overlayShape.Edit(request.Title, request.Properties, request.ShapeTypeId);
+            overlayShape.Edit(request.Title, request.Properties, request.Type);
             await this.context.SaveChangesAsync(cancellationToken);
             return overlayShape.Id;
         }

@@ -9,9 +9,6 @@ namespace MapShapes.Data.DataAccess.Mapping
         public void Configure(EntityTypeBuilder<OverlayShape> entity)
         {
             entity.HasKey(c => c.Id);
-            entity.HasOne(t => t.ShapeType)
-                .WithMany(t => t.OverlayShapes)
-                .HasForeignKey(t => t.ShapeTypeId);
         }
     }
 }

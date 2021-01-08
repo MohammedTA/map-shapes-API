@@ -1,4 +1,6 @@
-interface MapLocation {
+import { Marker } from './marker';
+
+export interface MapLocation {
   lat: number;
   lng: number;
   viewport?: Object;
@@ -6,7 +8,7 @@ interface MapLocation {
   marker?: Marker;
 }
 
-class MapLocation implements MapLocation {
+export class MapLocation implements MapLocation {
   constructor(
     lat: number,
     lng: number,

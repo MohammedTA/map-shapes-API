@@ -12,7 +12,7 @@ namespace MapShapes.Domain
 
     public static class Extensions
     {
-        private const int DefaultPageSize = 10;
+        private const int DefaultPageSize = 1000;
 
         public static void CopyPropertiesTo<T, TU>(this T source, TU dest)
         {
